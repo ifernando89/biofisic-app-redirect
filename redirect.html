@@ -1,0 +1,17 @@
+<!doctype html>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Abrir App</title>
+<script>
+var ios = "https://apps.apple.com/app/idXXXXXXXXX";
+var android = "https://play.google.com/store/apps/details?id=com.example.app";
+var ua = navigator.userAgent || navigator.vendor || window.opera;
+if (/android/i.test(ua)) {
+  window.location.replace(android);
+} else if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
+  window.location.replace(ios);
+} else {
+  document.body.style.fontFamily = "Arial, sans-serif";
+  document.body.style.padding = "20px";
+  document.write('<h2>Baixar o app</h2><p>Selecione a loja:</p><p><a href="' + ios + '">App Store (iOS)</a></p><p><a href="' + android + '">Google Play (Android)</a></p>');
+}
+</script>
